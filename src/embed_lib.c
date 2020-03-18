@@ -1,9 +1,3 @@
-/* TODO:
- *   X fix trailing decimal point after integers
- *   - fix trailing zeros on decimal
- *   - allow caller to select float accuracy
- */
-
 /* The following is a list of functions, that are useful
  * in bare-metal programming, without the use of stdlib
  * functions */
