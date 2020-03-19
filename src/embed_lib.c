@@ -34,11 +34,10 @@ int ftoa(float value) {
 		out_bytes[pos] = '0';
 		pos++;
 	} else {
+       		/* find number of digits on lhs */
 		int ldigit_count, tmp;
 		ldigit_count = 0;
 		tmp = lnum;
-
-		/* find number of digits on lhs */
 		while(tmp) {
 			tmp /= 10;
 			ldigit_count++;	      
@@ -52,13 +51,13 @@ int ftoa(float value) {
 				if(pos == 0) {
 					out_bytes[pos] = '-';
 					pos++;
-					/* dc is incremented in order to 
+					/* ldigit_count is incremented in order to 
 					   progress out_bytes one step below */
 					ldigit_count++;
 				}
-				cdigit = '0' - digit; /* dig char, case negative */
+				cdigit = '0' - digit; /* dig char, case: negative */
 			} else {
-			        cdigit = '0' + digit; /* dig char, case positive */
+			        cdigit = '0' + digit; /* dig char, case: positive */
 			}
 			/* add lhs digits in reverse order */
                		out_bytes[--ldigit_count] = cdigit;
