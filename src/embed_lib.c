@@ -7,7 +7,7 @@
 char out_bytes[10]; /* used to store the output of ftoa */
 
 /* convert a float into an ascii char array */
-int ftoa(float value) {
+int ftoa(float value, int accuracy) {
         int lnum, digit, pos;
 	float rnum;
         char cdigit;
@@ -26,6 +26,7 @@ int ftoa(float value) {
 	/* make rnum positive for convenience later */
 	if(rnum < 0)
 	        rnum -= (rnum * 2);
+	
 	pos = 0; /* digit position with array */
 	
 	/* if lhs is zero put zero before decimal
@@ -67,8 +68,8 @@ int ftoa(float value) {
 	}
 	
 	/* insert decimal point, only if numbers will
-	 	* follow decimal */
-	if(rnum > 0 && pos < 9) {
+	 * follow decimal */
+	if(accuracy && rnum > 0 && pos < 9) {
 		out_bytes[pos] = '.';
 		pos++;
 	} else {
@@ -76,21 +77,22 @@ int ftoa(float value) {
 	}
 	
 	/* get numbers after decimal point */
-	while(rnum && pos < 10) {
+	while(accuracy && rnum && pos < 10) {
 		rnum *= 10;
 		digit = (int) rnum;
 		cdigit = '0' + digit;
 		out_bytes[pos] = cdigit;
 		rnum -= digit;
-		pos++;	
+		pos++;
+		accuracy--;
 	}
 	return 0;
 }	
 
 int main() {
-	ftoa(-24539.22);
-	printf("%s\n", out_bytes);
-	return 0;
+  ftoa(2.22872, 5);
+  printf("%s\n", out_bytes);
+  return 0;
 }
 
 
