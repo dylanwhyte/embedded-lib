@@ -2,9 +2,9 @@
  * in bare-metal programming, without the use of stdlib
  * functions */
 
-#include <stdio.h>
+#include "../inc/libembedded.h"
 
-char out_bytes[10]; /* used to store the output of ftoa */
+char out_bytes[11]; /* used to store the output of ftoa */
 
 /* convert a float into an ascii char array */
 int ftoa(float value, int accuracy) {
