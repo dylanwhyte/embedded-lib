@@ -88,11 +88,3 @@ int ftoa(float value, int accuracy) {
 	}
 	return 0;
 }	
-
-int main() {
-  ftoa(2.22872, 5);
-  printf("%s\n", out_bytes);
-  return 0;
-}
-
-
