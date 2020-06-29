@@ -4,7 +4,7 @@
 
 #include "../inc/libembedded.h"
 
-char out_bytes[11]; /* used to store the output of ftoa */
+char out_bytes[1]; /* used to store the output of ftoa */
 
 /* convert a float into an ascii char array */
 int ftoa(float value, int accuracy) {
